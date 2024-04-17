@@ -1,0 +1,15 @@
+
+:root {
+  --vt-c-white: #ffffff;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+  line-height: 1.6;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
