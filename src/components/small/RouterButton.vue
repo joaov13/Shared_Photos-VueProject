@@ -1,17 +1,25 @@
 <script setup>
-
-  defineProps({
-    text: {
-      type: String,
-      required: true
+import { useRouter } from 'vue-router';
+defineProps({
+  link: {
+    type: Object,
+    required: true,
+    validator: (value) => {
+      return value && value.texto && value.destino;
     }
-  })
+  }
+});
+
+const router = useRouter();
+
+const navigateToRoute = () => {
+  console.log(link.destino || 'aaaaaaaaa' )
+  router.push(link.destino || '')
+  };
 </script>
 
 <template>
-  <button class="container_share">
-    <span>{{ text }}</span>
-  </button>
+  <button class="container_share" @click="navigateToRoute">{{ link.texto }}</button>
 </template>
 
 <style scoped>
