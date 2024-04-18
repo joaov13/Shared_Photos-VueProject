@@ -2,34 +2,53 @@
 import { RouterLink, RouterView } from 'vue-router'
 import MainLogo from './components/icons/MainLogo.vue';
 import Search from './components/small/Search.vue';
-import HeaderLinks from './components/small/HeaderLinks.vue';
+import NavigationLink from './components/small/NavigationLink.vue';
 import ShareButton from './components/small/ShareButton.vue';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const notIsALoginPage = computed(() => {
+  return route.name !== 'login';
+});
+
 </script>
 
 <template>
-  <header>
+  <header v-if="notIsALoginPage">
     <RouterLink to="/"><MainLogo /></RouterLink>
     <span>Shared-Photos</span>
-    <Search text="Pesquisar"/>
-    <HeaderLinks link1="Blog" link2="Sobre"/>
-    <ShareButton text="Compartilhar Foto"/>
-    <HeaderLinks link1="Entrar" link2="Cadastrar"/>
+    <div class="header_container" >
+      <Search text="Pesquisar"/>
+      <NavigationLink :link="{ texto: 'Sobre', destino: '/about' }" />
+      <ShareButton text="Compartilhar Foto"/>
+      <NavigationLink :link="{ texto: 'Entrar', destino: '/login' }" />
+      <NavigationLink :link="{ texto: 'Cadastrar', destino: '/cadastro' }" />
+    </div>
   </header>
 
-  <footer>
-    <RouterLink to="/"><MainLogo /></RouterLink>
+  <footer >
+    <RouterLink to="/login"><MainLogo /></RouterLink>
     <span>Obrigado por acessar nosso site</span>
   </footer>
   <RouterView />
 </template>
 
 <style scoped>
-  header {
-    padding: 30px 0;
+  header{
+    padding: 10px 0;
+    gap: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    background-color: black;
+  }
+  .header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+
   }
   footer{
     display: flex;
