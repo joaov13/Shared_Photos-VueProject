@@ -3,11 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import MainLogo from './components/icons/MainLogo.vue';
 import Search from './components/small/Search.vue';
 import NavigationLink from './components/small/NavigationLink.vue';
-import ShareButton from './components/small/ShareButton.vue';
-import { computed } from 'vue';
+import RouterButton from './components/small/RouterButton.vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import data from './data.json';
+
 
 const route = useRoute();
+const header = data.header;
 
 const notIsALoginPage = computed(() => {
   return route.name !== 'login';
@@ -18,19 +21,19 @@ const notIsALoginPage = computed(() => {
 <template>
   <header v-if="notIsALoginPage">
     <RouterLink to="/"><MainLogo /></RouterLink>
-    <span>Shared-Photos</span>
+    <span>{{ header.titulo }}</span>
     <div class="header_container" >
-      <Search text="Pesquisar"/>
-      <NavigationLink :link="{ texto: 'Sobre', destino: '/about' }" />
-      <ShareButton text="Compartilhar Foto"/>
-      <NavigationLink :link="{ texto: 'Entrar', destino: '/login' }" />
-      <NavigationLink :link="{ texto: 'Cadastrar', destino: '/cadastro' }" />
+      <NavigationLink :link="header.link_about" />
+      <Search :text="header.texto_pesquisar"/>
+      <RouterButton :link="header.link_compartilhar"/>
+      <NavigationLink :link="header.link_login" />
+      <NavigationLink :link="header.link_cadastrar" />
     </div>
   </header>
 
   <footer >
     <RouterLink to="/login"><MainLogo /></RouterLink>
-    <span>Obrigado por acessar nosso site</span>
+    <span>{{ data.footer.texto }}</span>
   </footer>
   <RouterView />
 </template>
