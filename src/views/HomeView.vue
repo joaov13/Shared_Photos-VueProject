@@ -1,12 +1,34 @@
 <script setup>
 import ExemploComponente from '@/components/ExemploComponente.vue';
+import SliderBig from '@/components/medium/SliderBig.vue';
+import data from '@/data.json';
+
+const photos = [
+  "blue.png",
+  "cyan.png",
+  "green.png",
+  "light-blue.png",
+  "light-pink.png",
+  "pink.png",
+  "purple.png",
+  "red.png"
+]
+let user ={
+  "texto": `@${data.user.username}`, 
+  "destino": data.user.username
+}
 </script>
 
 <template>
    <main>
-    <p>Aqui é o main</p>
-    <p>Aqui ta dentro do componente PRINCIPAL, a "landing view" é aqui pq aqui ta o main</p>
-    <ExemploComponente msg="Teste de componente"/>
-    <RouterLink to="/">aaaaaaaaaaaaaaaaaaaaaaaaa</RouterLink>
+    <ExemploComponente msg="Albuns"/>
+    <SliderBig :images="photos" :user="user"></SliderBig>
+    <SliderBig :images="photos" :user="user"></SliderBig>
   </main>
 </template>
+<style>
+  main{
+    padding: 20px;
+  }
+</style>
+

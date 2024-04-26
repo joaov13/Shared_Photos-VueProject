@@ -30,12 +30,12 @@ const notIsALoginPage = computed(() => {
       <NavigationLink :link="header.link_cadastrar" />
     </div>
   </header>
-
+  <RouterView />
   <footer >
     <RouterLink to="/login"><MainLogo /></RouterLink>
     <span>{{ data.footer.texto }}</span>
   </footer>
-  <RouterView />
+  
 </template>
 
 <style scoped>
@@ -59,9 +59,6 @@ const notIsALoginPage = computed(() => {
     align-items: center;
     width: 100%;
     gap: 15px;
-    bottom: 0;
-    position: fixed;
-    text-align: center;    
   }
 
   @media (min-width: 1024px) {
