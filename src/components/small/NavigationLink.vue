@@ -1,25 +1,22 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 
 defineProps({
-  link1: {
-    type: String,
-    required: true
-  },
-  link2: {
-    type: String,
-    required: true
+  link: {
+    type: Object,
+    required: true,
+    validator: (value) => {
+      return value && value.texto && value.destino;
+    }
   }
-
-})
+});
 </script>
 
 <template>
   <div class="container">
     <nav>
-        <RouterLink to="/">{{ link1 }}</RouterLink>
-        <RouterLink to="/about">{{ link2 }}</RouterLink>
+      <RouterLink :to="link.destino">{{ link.texto }}</RouterLink>
     </nav>
-    
   </div>
 </template>
 

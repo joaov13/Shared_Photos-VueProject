@@ -2,34 +2,56 @@
 import { RouterLink, RouterView } from 'vue-router'
 import MainLogo from './components/icons/MainLogo.vue';
 import Search from './components/small/Search.vue';
-import HeaderLinks from './components/small/HeaderLinks.vue';
-import ShareButton from './components/small/ShareButton.vue';
+import NavigationLink from './components/small/NavigationLink.vue';
+import RouterButton from './components/small/RouterButton.vue';
+import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import data from './data.json';
+
+
+const route = useRoute();
+const header = data.header;
+
+const notIsALoginPage = computed(() => {
+  return route.name !== 'login';
+});
+
 </script>
 
 <template>
-  <header>
+  <header v-if="notIsALoginPage">
     <RouterLink to="/"><MainLogo /></RouterLink>
-    <span>Shared-Photos</span>
-    <Search text="Pesquisar"/>
-    <HeaderLinks link1="Blog" link2="Sobre"/>
-    <ShareButton text="Compartilhar Foto"/>
-    <HeaderLinks link1="Entrar" link2="Cadastrar"/>
+    <span>{{ header.titulo }}</span>
+    <div class="header_container" >
+      <NavigationLink :link="header.link_about" />
+      <Search :text="header.texto_pesquisar"/>
+      <RouterButton :link="header.link_compartilhar"/>
+      <NavigationLink :link="header.link_login" />
+      <NavigationLink :link="header.link_cadastrar" />
+    </div>
   </header>
 
-  <footer>
-    <RouterLink to="/"><MainLogo /></RouterLink>
-    <span>Obrigado por acessar nosso site</span>
+  <footer >
+    <RouterLink to="/login"><MainLogo /></RouterLink>
+    <span>{{ data.footer.texto }}</span>
   </footer>
   <RouterView />
 </template>
 
 <style scoped>
-  header {
-    padding: 30px 0;
+  header{
+    padding: 10px 0;
+    gap: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    background-color: black;
+  }
+  .header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+
   }
   footer{
     display: flex;
