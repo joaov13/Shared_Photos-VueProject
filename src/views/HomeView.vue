@@ -1,8 +1,10 @@
 <script setup>
 import ExemploComponente from '@/components/ExemploComponente.vue';
-import SliderBig from '@/components/medium/SliderBig.vue';
+import SliderBigImages from '@/components/medium/SliderBigImages.vue';
+import SliderPosts from '@/components/medium/SliderPosts.vue';
 import data from '@/data.json';
 
+const { posts } = data;
 const photos = [
   "blue.png",
   "cyan.png",
@@ -21,12 +23,17 @@ let user ={
 
 <template>
    <main>
-    <ExemploComponente msg="Albuns"/>
-    <SliderBig :images="photos" :user="user"></SliderBig>
-    <SliderBig :images="photos" :user="user"></SliderBig>
+    <div class="albuns_container">
+      <ExemploComponente msg="Albuns"/>
+      <SliderBigImages :images="photos" :user="user"></SliderBigImages>
+      <SliderBigImages :images="photos" :user="user"></SliderBigImages>
+      <SliderPosts :posts="posts"></SliderPosts>
+    </div>
+
   </main>
 </template>
 <style>
+
   main{
     padding: 20px;
   }

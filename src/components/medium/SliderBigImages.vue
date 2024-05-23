@@ -21,12 +21,7 @@ defineProps({
 </script>
 
 <template>
-  <RouterButton :link="user"></RouterButton>
-  <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="true" navigation="true">
-      <swiper-slide v-for="image in images">
-        <img :src="`src/images/${image}`" height="300px">
-      </swiper-slide>
-  </swiper-container>
+  
 </template>
 
 <style scoped>
