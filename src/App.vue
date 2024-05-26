@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import MainLogo from './components/icons/MainLogo.vue';
-import Search from './components/small/Search.vue';
 import NavigationLink from './components/small/NavigationLink.vue';
 import RouterButton from './components/small/RouterButton.vue';
 import { computed, ref } from 'vue';
@@ -24,18 +23,17 @@ const notIsALoginPage = computed(() => {
     <span>{{ header.titulo }}</span>
     <div class="header_container" >
       <NavigationLink :link="header.link_about" />
-      <Search :text="header.texto_pesquisar"/>
       <RouterButton :link="header.link_compartilhar"/>
       <NavigationLink :link="header.link_login" />
       <NavigationLink :link="header.link_cadastrar" />
     </div>
   </header>
-
+  <RouterView />
   <footer >
     <RouterLink to="/login"><MainLogo /></RouterLink>
     <span>{{ data.footer.texto }}</span>
   </footer>
-  <RouterView />
+  
 </template>
 
 <style scoped>
@@ -45,6 +43,7 @@ const notIsALoginPage = computed(() => {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #5f584e;
   }
   .header_container {
     display: flex;
@@ -59,9 +58,6 @@ const notIsALoginPage = computed(() => {
     align-items: center;
     width: 100%;
     gap: 15px;
-    bottom: 0;
-    position: fixed;
-    text-align: center;    
   }
 
   @media (min-width: 1024px) {

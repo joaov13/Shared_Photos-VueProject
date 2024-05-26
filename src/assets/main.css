@@ -1,7 +1,6 @@
 @import './base.css';
 
 #app {
-  background-color: black;
   color: white;
   margin: 0 auto;
   font-weight: normal;
