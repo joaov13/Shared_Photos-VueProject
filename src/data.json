@@ -2,35 +2,47 @@
   "header": {
     "titulo": "Shared-Photos",
     "texto_pesquisar": "Pesquisar",
-    "link_about": { "texto": "Sobre", "destino": "/about" },
-    "link_compartilhar": { "texto": "Compartilhar foto", "destino": "/compartilhar-foto" },
-    "link_cadastrar": { "texto": "Cadastrar", "destino": "/cadastro" },
-    "link_login": { "texto": "Login", "destino": "/login" }
+    "link_about": {
+      "texto": "Sobre",
+      "destino": "/about"
+    },
+    "link_compartilhar": {
+      "texto": "Compartilhar foto",
+      "destino": "/compartilhar-foto"
+    },
+    "link_cadastrar": {
+      "texto": "Cadastrar",
+      "destino": "/cadastro"
+    },
+    "link_login": {
+      "texto": "Login",
+      "destino": "/login"
+    }
   },
-  "footer" : {
-    "texto" : "Obrigado por acessar nosso site"
+  "footer": {
+    "texto": "Obrigado por acessar nosso site"
   },
   "view_about": {
-      "projeto": {
-        "titulo": "Projeto de Front-end Vue3",
-        "descricao": "Este projeto é um front-end desenvolvido em Vue.js 3 para consumir uma API pública que fornece dados de usuários, posts, comentários, álbuns, fotos e listas de tarefas (to-do lists). O objetivo é criar uma interface amigável para explorar e interagir com esses dados de forma dinâmica e responsiva."
+    "projeto": {
+      "titulo": "Projeto de Front-end Vue3",
+      "descricao": "Este projeto é um front-end desenvolvido em Vue.js 3 para consumir uma API pública que fornece dados de usuários, posts, comentários, álbuns, fotos e listas de tarefas (to-do lists). O objetivo é criar uma interface amigável para explorar e interagir com esses dados de forma dinâmica e responsiva."
+    },
+    "integrantes": [
+      {
+        "nome": "Seu Nome",
+        "email": "seu.email@example.com",
+        "github": "seu-username-github",
+        "linkedin": "seu-linkedin-username"
       },
-      "integrantes": [
-        {
-          "nome": "Seu Nome",
-          "email": "seu.email@example.com",
-          "github": "seu-username-github",
-          "linkedin": "seu-linkedin-username"
-        },
-        {
-          "nome": "Nome do seu Colega",
-          "email": "email.do.colega@example.com",
-          "github": "username-do-colega-github",
-          "linkedin": "linkedin-do-colega-username"
-        }
-      ]
+      {
+        "nome": "Nome do seu Colega",
+        "email": "email.do.colega@example.com",
+        "github": "username-do-colega-github",
+        "linkedin": "linkedin-do-colega-username"
+      }
+    ]
   },
-  "user" :{
+  "user": {
     "id": 5,
     "name": "Chelsey Dietrich",
     "username": "Kamren",
@@ -53,7 +65,7 @@
       "bs": "revolutionize end-to-end systems"
     }
   },
-  "posts" : [
+  "posts": [
     {
       "userId": 1,
       "id": 1,

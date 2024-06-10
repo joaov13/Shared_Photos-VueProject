@@ -3,6 +3,7 @@ import ExemploComponente from '@/components/ExemploComponente.vue';
 import SliderBigImages from '@/components/medium/SliderBigImages.vue';
 import SliderPosts from '@/components/medium/SliderPosts.vue';
 import data from '@/data.json';
+import store from '@/store';
 
 const { posts } = data;
 const photos = [
@@ -25,9 +26,12 @@ let user ={
    <main>
     <div class="albuns_container">
       <ExemploComponente msg="Albuns"/>
-      <SliderBigImages :images="photos" :user="user"></SliderBigImages>
-      <SliderBigImages :images="photos" :user="user"></SliderBigImages>
-      <SliderPosts :posts="posts"></SliderPosts>
+      <SliderBigImages :images="store.state.photos" :user="user"></SliderBigImages>
+      <SliderBigImages :images="store.state.photos" :user="user"></SliderBigImages>
+      <SliderPosts :posts="store.state.posts"></SliderPosts>
+      
+
+      
     </div>
 
   </main>
