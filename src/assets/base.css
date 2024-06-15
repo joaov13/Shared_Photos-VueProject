@@ -5,10 +5,10 @@
 
 body {
   height: 100vh;
-  background-color: black;
+  background-color:#976c4d;
   line-height: 1.6;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+  font-size: x-large;
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
